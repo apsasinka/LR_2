@@ -45,54 +45,18 @@ public:
 
     void orOperation(const Bitstring& other) {
         for (int i = 0; i < size; ++i) {
-            /*if (data[i] == 1 and other.getValue(i) == 1) {
-                data[i] = 1;
-            }
-            else if (data[i] == 1 and other.getValue(i) == 0) {
-                data[i] = 1;
-            }
-            else if (data[i] == 0 and other.getValue(i) == 1) {
-                data[i] = 1;
-            }
-            else if (data[i] == 0 and other.getValue(i) == 0) {
-                data[i] = 0;
-            }*/
             data[i] = data[i] | other.getValue(i);
         }
     }
 
     void xorOperation(const Bitstring& other) {
         for (int i = 0; i < size; ++i) {
-            /*if (data[i] == 1 and other.getValue(i) == 1) {
-                data[i] = 0;
-            }
-            else if (data[i] == 1 and other.getValue(i) == 0) {
-                data[i] = 1;
-            }
-            else if (data[i] == 0 and other.getValue(i) == 1) {
-                data[i] = 1;
-            }
-            else if (data[i] == 0 and other.getValue(i) == 0) {
-                data[i] = 0;
-            }*/
             data[i] = data[i] ^ other.getValue(i);
         }
     }
 
     void andOperation(const Bitstring& other) {
         for (int i = 0; i < size; ++i) {
-            /* if (data[i] == 1 and other.getValue(i) == 1) {
-                 data[i] = 1;
-             }
-             else if (data[i] == 1 and other.getValue(i) == 0) {
-                 data[i] = 0;
-             }
-             else if (data[i] == 0 and other.getValue(i) == 1) {
-                 data[i] = 0;
-             }
-             else if (data[i] == 0 and other.getValue(i) == 0) {
-                 data[i] = 0;
-             }*/
             data[i] = data[i] & other.getValue(i);
         }
     }
@@ -108,20 +72,17 @@ public:
 
 int main() {
     int size;
-    // std::cout << "Enter the size of Bitstrings: ";
     std::cin >> size;
 
     Bitstring Bitstring1(size);
     Bitstring Bitstring2(size);
 
-    // std::cout << "Enter values for Bitstring1: ";
     for (int i = 0; i < size; ++i) {
         int value;
         std::cin >> value;
         Bitstring1.setValue(i, value);
     }
-
-    // std::cout << "Enter values for Bitstring2: ";
+    
     for (int i = 0; i < size; ++i) {
         int value;
         std::cin >> value;
@@ -155,20 +116,17 @@ int main() {
 
     while (true) {
         int action, shift;
-        // std::cout << "Enter action (0 to exit, 1 for shift Bitstring1, 2 for shift Bitstring2): ";
         std::cin >> action;
 
         if (action == 0) {
             break;
         }
         else if (action == 1) {
-            //std::cout << "Enter the number of positions to shift Bitstring1 to the right: ";
             std::cin >> shift;
             std::cout << "cycle sdvig " << shift << " Bitstring1" << std::endl;
             Bitstring1.cyclicShiftRight(shift);
         }
         else if (action == 2) {
-            // std::cout << "Enter the number of positions to shift Bitstring2 to the right: ";
             std::cin >> shift;
             std::cout << "cycle sdvig " << shift << " Bitstring2" << std::endl;
             Bitstring2.cyclicShiftRight(shift);
